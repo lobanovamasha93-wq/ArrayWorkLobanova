@@ -1,17 +1,23 @@
-package org.example;
+package ru.netology.stats;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        StatsService service = new StatsService();
+
+        long sum = service.calculateSum(sales);
+        double average = service.calculateAverage(sales);
+        int maxMonth = service.findMaxMonth(sales);
+        int minMonth = service.findMinMonth(sales);
+        int monthsBelowAvg = service.countMonthsBelowAverage(sales);
+        int monthsAboveAvg = service.countMonthsAboveAverage(sales);
+
+        System.out.println("Сумма всех продаж: " + sum);
+        System.out.println("Средняя сумма продаж в месяц: " + average);
+        System.out.println("Номер месяца с пиком продаж: " + maxMonth);
+        System.out.println("Номер месяца с минимумом продаж: " + minMonth);
+        System.out.println("Количество месяцев с продажами ниже среднего: " + monthsBelowAvg);
+        System.out.println("Количество месяцев с продажами выше среднего: " + monthsAboveAvg);
     }
 }
