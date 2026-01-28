@@ -20,12 +20,6 @@ class StatsServiceTest {
     }
 
     @Test
-    void testCalculateAverage() {
-        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        assertEquals(15.0, service.calculateAverage(sales));
-    }
-
-    @Test
     void testFindMinMonth() {
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         assertEquals(9, service.findMinMonth(sales));
@@ -38,8 +32,14 @@ class StatsServiceTest {
     }
 
     @Test
+    void testCalculateAverage() {
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        assertEquals(15.0, service.calculateAverage(sales), 0.0001);
+    }
+
+    @Test
     void testCountMonthsAboveAverage() {
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        assertEquals(6, service.countMonthsAboveAverage(sales));
+        assertEquals(5, service.countMonthsAboveAverage(sales));
     }
 }
